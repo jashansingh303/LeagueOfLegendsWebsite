@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import {useRouter} from 'next/router'
-import styles from '../styles/Home.module.css'
+import dynamic from 'next/dynamic'
+// import img1 from "/assests/wavesOpacity.svg"
 
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
 
     
   <div className='min-h-screen bg-gray-700'>
+    <img src={"assests/wavesOpacity.svg"} />
     <nav>
       <p className=''><a href='http://localhost:3000/' className='mx-10 pt-5 font-serif text-white text-xl'>Search.GG</a></p>
     </nav>
@@ -38,6 +40,14 @@ export default function Home() {
         </div>
       </div>
     </main>
+      
+    <body>
+
+
+
+
+    </body>
+
 
     </div>
   )

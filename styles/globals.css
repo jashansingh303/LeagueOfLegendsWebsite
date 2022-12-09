@@ -35,3 +35,9 @@ a {
     background: black;
   }
 } */
+
+.players{
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-auto-flow: column;
+}
