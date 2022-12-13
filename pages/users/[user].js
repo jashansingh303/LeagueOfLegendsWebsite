@@ -109,9 +109,10 @@ const User = () => {
 
 {/* start */}
 <div className='accordian w-[60%] mx-auto'>
-{gameList.map((gameData, index) => 
+
+{gameList.map((gameData,index ) => 
     
-  <div className="Bg-holder accordion-item bg-white border border-gray-200"> 
+  <div className="Bg-holder accordion-item bg-white border border-gray-200" key={index}> 
 
     <h2 className="accordion-header mb-0 flex " id="flush-headingOne" data-bs-toggle="collapse" data-bs-target={`#game-${index}`}>
       <div className=' w-full'>
@@ -121,14 +122,14 @@ const User = () => {
               gameData.info.participants.map((data) => {
                 if (data.summonerId == playerData.id) {
                   return(
-                    <div className='flex'>
-                      <div className='Game-Data w-[100px] text-center my-auto'>
+                    <div className='flex' key={index}>
+                      <div className='Game-Data w-[100px] text-center my-auto leading-2 ml-3'>
                         <div>{gameData.info.gameMode}</div>
                         <div>{data.win ? <>Victory</> : <>Defeat</>}</div>
                         <div>{String(gameData.info.gameDuration).timeConverter()}</div>
                       </div>
                       
-                      <div className='w-[200px] flex my-auto '>
+                      <div className='w-[200px] flex my-auto pl-3'>
                         <div className='my-auto mr-3'>
                            <div><img className="Champion h-[50px] w-[50px] rounded-full my-auto" src= {"http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/" + data.championName + ".png"}/></div>
                         </div>
@@ -168,11 +169,11 @@ const User = () => {
                         <div>Creep Score {data.totalMinionsKilled}</div>
                       </div>
                     
-                      <div className='players w-[900px] pl-[10px] my-auto'>
+                      <div className='players w-[700px] pl-[25px] my-auto py-2'>
                       {gameData.info.participants.map((data) =>
-                        <div className='flex my-auto'>
+                        <div className='flex my-auto' key={index}>
                           <img src= {"http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/" + data.championName + ".png"} className="rounded-full h-[25px]"/>
-                          <div className='pl-10 w-[250px]'>{data.summonerName}</div>
+                          <div className='pl-1 w-[250px]'>{data.summonerName}</div>
                         </div>
                       )}
                       </div>
@@ -201,7 +202,7 @@ const User = () => {
               <table className="min-w-full">
                 <thead className="border-b">
                 {gameData.info.participants.slice(0,1).map((data) =>
-                  <tr className='mx-auto'>
+                  <tr className='mx-auto' key={index}>
                     <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                     <div className='text-center'>{data.win ? <>Victory</> : <>Defeat</>}</div>
                     </th>
@@ -226,12 +227,12 @@ const User = () => {
                 <tbody>
                 {gameData.info.participants.slice(0,5).map((data) =>
                   
-                  <tr className="">
+                  <tr className="" key={index}>
                     <td className="px-6 py-4 text-sm font-medium text-gray-900 w-[250px]">
                       <div className=''>
                         <div className='flex my-auto '>
                             <div className='my-auto mr-3'>
-                              <div><img className="Champion h-[40px] w-[40px] rounded-full my-auto" src= {"http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/" + data.championName + ".png"}/></div>
+                              <div key={index}><img className="Champion h-[40px] w-[40px] rounded-full my-auto" src= {"http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/" + data.championName + ".png"}/></div>
                             </div>
                             <div className='flex'>
                               <div className='Summoner Spells '>
@@ -286,8 +287,8 @@ const User = () => {
 
                 <thead className="border-b">
                 {gameData.info.participants.slice(5,6).map((data) =>
-                  <tr>
-                    <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                  <tr key={index}>
+                    <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-center">
                     <div>{data.win ? <>Victory</> : <>Defeat</>}</div>
                     </th>
                     <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
@@ -310,13 +311,13 @@ const User = () => {
                 </thead>
                 <tbody>
                 {gameData.info.participants.slice(5,10).map((data) =>
-                  <tr className="border-b">
+                  <tr className="border-b" key={index}>
                     
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                       <div>
                         <div className='flex my-auto '>
                             <div className='my-auto mr-3'>
-                              <div><img className="Champion h-[40px] w-[40px] rounded-full my-auto" src= {"http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/" + data.championName + ".png"}/></div>
+                              <div key={index}><img className="Champion h-[40px] w-[40px] rounded-full my-auto" src= {"http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/" + data.championName + ".png"}/></div>
                             </div>
                             <div className='flex'>
                               <div className='Summoner Spells '>
@@ -338,7 +339,7 @@ const User = () => {
                       </div>
                     </td>
 
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                       <div>
                         <div className=''>{data.kills}/{data.deaths}/{data.assists}</div> 
                       </div>
