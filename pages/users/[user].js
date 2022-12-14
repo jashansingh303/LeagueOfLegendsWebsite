@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import axios from "axios"
 import Tippy from '@tippyjs/react';
-import 'tw-elements';
+import dynamic from 'next/dynamic'
 
 String.prototype.timeConverter = function () {
   var sec_num = parseInt(this, 10); // don't forget the second param
@@ -15,6 +15,12 @@ String.prototype.timeConverter = function () {
   if (seconds < 10) {seconds = "0"+seconds;}
   return minutes + ':' + seconds;
 }
+
+const DynamicComponentWithNoSSR = dynamic(
+  () => import('tw-elements'),
+  { ssr: false }
+)
+
 
 const User = () => {
   const router = useRouter()
