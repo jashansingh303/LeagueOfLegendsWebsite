@@ -6,7 +6,7 @@ Search.GG is a website which allows users to search their League of Legends name
 
 ![image](https://user-images.githubusercontent.com/66233403/208979512-13d2da15-e580-4d7d-972b-f546566c8f7c.png)
 
-# Technologies USed
+# Technologies Used
 HTML
 TAILWIND CSS
 REACT (NEXTJS)
