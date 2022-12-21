@@ -12,3 +12,5 @@ TAILWIND CSS
 REACT (NEXTJS)
 Axios (to obtain data from riot games api)
 
+# Video Walkthrough
+https://www.youtube.com/watch?v=R1U1SgYHz94
